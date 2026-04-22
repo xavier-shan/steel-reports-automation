@@ -1,0 +1,61 @@
+{
+  "template_path": "/absolute/path/to/市场价格日报模板.xlsx",
+  "runtime": {
+    "sheet_name": null,
+    "snapshot_path": "./state/market_price_snapshot.json",
+    "output_dir": "./output",
+    "add_xugang_row_if_missing": true,
+    "mills_linked_to_sangang": [
+      "新兴铸管",
+      "凌钢",
+      "徐钢，六安，大东海"
+    ],
+    "mill_aliases": {
+      "三钢": [
+        "三钢"
+      ],
+      "新兴铸管": [
+        "新兴铸管"
+      ],
+      "凌钢": [
+        "凌钢"
+      ],
+      "徐钢，六安，大东海": [
+        "徐钢，六安，大东海"
+      ],
+      "元立": [
+        "元立"
+      ]
+    },
+    "grade_aliases": {
+      "45#": [
+        "45#",
+        "45＃"
+      ],
+      "40Cr": [
+        "40Cr",
+        "40CR"
+      ],
+      "08Al": [
+        "08Al",
+        "08AL"
+      ],
+      "195": [
+        "195"
+      ]
+    }
+  },
+  "inputs": {
+    "report_date": "2026-04-22",
+    "changed_prices": {
+      "三钢": {
+        "45#": 3660
+      },
+      "元立": {
+        "45#": 3520,
+        "08Al": 3440,
+        "195": 3340
+      }
+    }
+  }
+}

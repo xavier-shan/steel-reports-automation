@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 from utils import WorkbookError, find_sheet, load_xlsx, read_json, save_xlsx, safe_filename, write_json
 
@@ -33,8 +33,12 @@ def run(input_json: str) -> str:
 
     cell_map = runtime["cell_map"]
 
-    # 固定复制逻辑：C5 <- F5，C6 <- F6，C7 <- F7
-    for left_cell, right_cell in (("C5", "F5"), ("C6", "F6"), ("C7", "F7")):
+    copy_pairs = [
+        (cell_map["round_current"], cell_map["round_next"]),
+        (cell_map["wire_current_1"], cell_map["wire_next_1"]),
+        (cell_map["wire_current_2"], cell_map["wire_next_2"]),
+    ]
+    for left_cell, right_cell in copy_pairs:
         ws[left_cell] = ws[right_cell].value
 
     round_list = state["round_bar_customers"]
@@ -43,20 +47,16 @@ def run(input_json: str) -> str:
     next_round, next_round_index = rotate_list(round_list, state["round_bar_index"], 1)
     next_wire, next_wire_index = rotate_list(wire_list, state["wire_index"], 2)
 
-    ws["F5"] = next_round[0]
-    ws["F6"] = next_wire[0]
-    ws["F7"] = next_wire[1]
+    ws[cell_map["round_next"]] = next_round[0]
+    ws[cell_map["wire_next_1"]] = next_wire[0]
+    ws[cell_map["wire_next_2"]] = next_wire[1]
 
-    # 福建广吉固定不参与轮换，默认保持在配置位置
-    fixed_customer_cells = runtime.get("fixed_customer_cells", {})
-    for cell_addr, value in fixed_customer_cells.items():
+    for cell_addr, value in runtime.get("fixed_customer_cells", {}).items():
         ws[cell_addr] = value
 
-    # 按输入更新 B 列送到价
     for cell_addr, value in inputs.get("delivered_prices", {}).items():
         ws[cell_addr] = value
 
-    # 允许用户显式更新其他格子
     for cell_addr, value in inputs.get("direct_updates", {}).items():
         ws[cell_addr] = value
 

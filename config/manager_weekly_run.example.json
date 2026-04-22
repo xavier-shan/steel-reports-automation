@@ -1,0 +1,28 @@
+{
+  "template_path": "/absolute/path/to/经理周报模板.xlsx",
+  "runtime": {
+    "sheet_name": null,
+    "rotation_state_path": "./state/manager_rotation_state.json",
+    "output_dir": "./output",
+    "default_output_prefix": "经理周报",
+    "cell_map": {
+      "round_current": "C5",
+      "round_next": "F5",
+      "wire_current_1": "C6",
+      "wire_current_2": "C7",
+      "wire_next_1": "F6",
+      "wire_next_2": "F7"
+    },
+    "fixed_customer_cells": {
+      "C8": "福建广吉"
+    }
+  },
+  "inputs": {
+    "report_date": "2026-04-24",
+    "delivered_prices": {
+      "B5": 3660,
+      "B6": 3550
+    },
+    "direct_updates": {}
+  }
+}

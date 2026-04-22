@@ -1,7 +1,7 @@
 {
   "template_path": "/absolute/path/to/市场价格日报模板.xlsx",
   "runtime": {
-    "sheet_name": null,
+    "sheet_name": "工作表1",
     "snapshot_path": "./state/market_price_snapshot.json",
     "output_dir": "./output",
     "add_xugang_row_if_missing": true,
@@ -37,6 +37,7 @@
         "40CR"
       ],
       "08Al": [
+        "08AI",
         "08Al",
         "08AL"
       ],

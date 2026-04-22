@@ -13,10 +13,7 @@
       "wire_next_1": "F6",
       "wire_next_2": "F7"
     },
-    "fixed_customer_cells": {
-      "C4": "福建广吉",
-      "F4": "福建广吉"
-    }
+    "fixed_customer_cells": {}
   },
   "inputs": {
     "report_date": "2026-04-24",

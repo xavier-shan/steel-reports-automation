@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.xavier.market-price-daily</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/bin/python3</string>
+      <string>/ABSOLUTE/PATH/steel_reports_automation/scripts/price_daily.py</string>
+      <string>--input</string>
+      <string>/ABSOLUTE/PATH/steel_reports_automation/config/market_price_run.json</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/ABSOLUTE/PATH/steel_reports_automation</string>
+    <key>StartCalendarInterval</key>
+    <array>
+      <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>40</integer></dict>
+      <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>40</integer></dict>
+      <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>40</integer></dict>
+      <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>40</integer></dict>
+      <dict><key>Weekday</key><integer>6</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>40</integer></dict>
+    </array>
+    <key>StandardOutPath</key>
+    <string>/tmp/market-price-daily.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/market-price-daily.err</string>
+    <key>RunAtLoad</key>
+    <false/>
+  </dict>
+</plist>

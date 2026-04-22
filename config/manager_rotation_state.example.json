@@ -1,0 +1,15 @@
+{
+  "round_bar_customers": [
+    "客户A",
+    "客户B",
+    "客户C"
+  ],
+  "wire_customers": [
+    "客户甲",
+    "客户乙",
+    "客户丙",
+    "客户丁"
+  ],
+  "round_bar_index": 0,
+  "wire_index": 0
+}

@@ -117,8 +117,9 @@ def _update_remark_text(ws, sangang_45_price: Optional[float]) -> None:
         for cell in row:
             text = cell.value
             if isinstance(text, str) and "元立建议出厂价" in text:
-                new_text = pattern.sub(replacement, text)
-                if new_text == text:
+                if pattern.search(text):
+                    new_text = pattern.sub(replacement, text)
+                else:
                     new_text = f"{text.rstrip()} 元立建议出厂价45#{suggested}"
                 cell.value = new_text
                 return
